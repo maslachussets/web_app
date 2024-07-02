@@ -32,6 +32,19 @@ export default {
     MissionItem,
     NftBoost,
   },
+  mounted() {
+    if (window.Telegram && window.Telegram.WebApp) {
+      window.Telegram.WebApp.BackButton.show();
+    }
+  },
+  methods: {
+    goBack() {
+      if (window.Telegram && window.Telegram.WebApp) {
+        window.Telegram.WebApp.BackButton.hide();
+      }
+      this.$router.go(-1); // Возвращаемся на предыдущую страницу
+    },
+  },
 };
 </script>
 <style>

@@ -26,6 +26,11 @@ export default {
     LeaderItem,
     CurrentUserPlace,
   },
+  mounted() {
+    if (window.Telegram && window.Telegram.WebApp) {
+      window.Telegram.WebApp.BackButton.show();
+    }
+  },
   data() {
     return {
       leaders: [],
@@ -41,6 +46,12 @@ export default {
   methods: {
     updateLeaderboard(leaders) {
       this.leaders = leaders;
+    },
+    goBack() {
+      if (window.Telegram && window.Telegram.WebApp) {
+        window.Telegram.WebApp.BackButton.hide();
+      }
+      this.$router.go(-1); // Возвращаемся на предыдущую страницу
     },
   },
 };
