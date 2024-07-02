@@ -1,13 +1,13 @@
 <template>
   <div class="button-block">
     <div class="button-item">
-      <button class="button-large" id="boost">
+      <button class="button-large" id="boost" @click="goToBoosts">
         <img class="button-icon" src="../assets/boost_ico.svg" />
         <div class="button-text">Boosts</div>
       </button>
     </div>
     <div class="button-item">
-      <button class="button-large" id="fren">
+      <button class="button-large" id="fren" @click="goToFrens">
         <img class="button-icon" src="../assets/fren_ico.svg" />
         <div class="button-text">Invite frens</div>
       </button>
@@ -18,20 +18,30 @@
 <script>
 export default {
   name: "ButtonBlock",
+  methods: {
+    goToBoosts() {
+      this.$router.push({ name: "BoostPage" });
+    },
+    goToFrens() {
+      this.$router.push({ name: "InviteFrensPage" });
+    },
+  },
 };
 </script>
 
 <style>
 .button-block {
-  bottom: 0;
-  width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  gap: 10px;
+  max-width: 768px;
+  padding: 10px;
 }
 
 .button-item {
-  width: 100%;
-  padding: 10px;
+  display: block;
 }
 
 button {
@@ -60,8 +70,14 @@ button {
   box-shadow: none;
 }
 
+.button-text {
+  font-size: 12px;
+  font-weight: 400;
+}
+
 .button-large {
-  width: 100%;
+  width: 40vw;
   border-radius: 100px;
+  max-width: 200px;
 }
 </style>

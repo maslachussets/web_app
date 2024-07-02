@@ -56,14 +56,14 @@ export default {
 }
 
 .font-size-small {
-  font-size: 28px;
+  font-size: 22px;
 }
 
 .font-size-smaller {
-  font-size: 24px;
+  font-size: 16px;
 }
 
 .font-size-smallest {
-  font-size: 20px;
+  font-size: px;
 }
 </style>

@@ -106,7 +106,7 @@ export default {
         window.Telegram.WebApp &&
         window.Telegram.WebApp.HapticFeedback
       ) {
-        window.Telegram.WebApp.HapticFeedback.impactOccurred("medium");
+        window.Telegram.WebApp.HapticFeedback.impactOccurred("light");
       }
     },
     consumeEnergy() {

@@ -5,7 +5,14 @@
 </template>
 
 <script>
-import { fetchUserState, fetchUserBalance } from "../mockBackend";
+import {
+  fetchUserState,
+  sendTapCount,
+  fetchUserBalance,
+  fetchUserAchievement,
+  fetchLeaderboard,
+} from "../mockBackend";
+import eventBus from "../eventBus";
 
 export default {
   name: "TapConfig",
@@ -22,6 +29,11 @@ export default {
   mounted() {
     this.fetchInitialState(); // Получение начального состояния с "бэкенда"
     this.fetchBalance(); // Получение баланса пользователя с "бэкенда"
+    this.fetchAchievement(); // Получение достижения пользователя с "бэкенда"
+    eventBus.on("fetchLeaderboard", this.fetchLeaderboard); // Получение данных о лидерах
+  },
+  beforeUnmount() {
+    eventBus.off("fetchLeaderboard", this.fetchLeaderboard);
   },
   methods: {
     fetchInitialState() {
@@ -42,6 +54,29 @@ export default {
           this.$emit("updateBalance", data.balance);
         })
         .catch((error) => console.error("Error fetching user balance:", error));
+    },
+    fetchAchievement() {
+      fetchUserAchievement()
+        .then((data) => {
+          this.$emit("updateAchievement", data.achievementName);
+        })
+        .catch((error) =>
+          console.error("Error fetching user achievement:", error)
+        );
+    },
+    fetchLeaderboard() {
+      fetchLeaderboard()
+        .then((data) => {
+          eventBus.emit("updateLeaderboard", data);
+        })
+        .catch((error) => console.error("Error fetching leaderboard:", error));
+    },
+    sendTapCountToBackend(tapCount) {
+      sendTapCount(tapCount)
+        .then(() => {
+          this.$emit("tapCountSent");
+        })
+        .catch((error) => console.error("Error sending tap count:", error));
     },
     consumeEnergy() {
       if (this.remainingEnergy > 0) {
