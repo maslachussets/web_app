@@ -106,7 +106,9 @@ export default {
         window.Telegram.WebApp &&
         window.Telegram.WebApp.HapticFeedback
       ) {
-        window.Telegram.WebApp.HapticFeedback.impactOccurred("light");
+        window.Telegram.WebApp.HapticFeedback.impactOccurred("medium");
+      } else if (navigator.vibrate) {
+        navigator.vibrate(200); // Вибрация на 200 миллисекунд
       }
     },
     consumeEnergy() {
