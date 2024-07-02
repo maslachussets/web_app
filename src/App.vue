@@ -13,6 +13,17 @@ export default {
   components: {
     TapConfig,
   },
+  mounted() {
+    if (window.Telegram && window.Telegram.WebApp) {
+      this.tg = window.Telegram.WebApp;
+      this.tg.ready();
+
+      // Обработка кнопки "Назад"
+      this.tg.BackButton.onClick(() => {
+        this.$router.go(-1); // Возвращаемся на предыдущую страницу
+      });
+    }
+  },
 };
 </script>
 

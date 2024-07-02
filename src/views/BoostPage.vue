@@ -35,13 +35,17 @@ export default {
   mounted() {
     if (window.Telegram && window.Telegram.WebApp) {
       window.Telegram.WebApp.BackButton.show();
+      window.Telegram.WebApp.BackButton.onClick(this.goBack); // Добавляем обработчик события для кнопки "Назад"
+    }
+  },
+  beforeUnmount() {
+    if (window.Telegram && window.Telegram.WebApp) {
+      window.Telegram.WebApp.BackButton.hide();
+      window.Telegram.WebApp.BackButton.offClick(this.goBack); // Убираем обработчик события при размонтировании
     }
   },
   methods: {
     goBack() {
-      if (window.Telegram && window.Telegram.WebApp) {
-        window.Telegram.WebApp.BackButton.hide();
-      }
       this.$router.go(-1); // Возвращаемся на предыдущую страницу
     },
   },
