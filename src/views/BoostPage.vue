@@ -2,9 +2,9 @@
   <div class="container-boosts">
     <div class="page-title">Default Boosts</div>
     <DefaultBoost />
-    <div class="page-title">NFT Boosts</div>
+    <div class="page-title">Your Wallet</div>
     <ConnectWallet />
-    <div class="page-title">Items</div>
+    <div class="page-title">NFT-Boosts</div>
     <div class="NFT-container">
       <div class="NFT-grid">
         <NftBoost />
@@ -59,7 +59,7 @@ export default {
   margin: 0 auto;
   padding-top: 10px;
   max-width: 768px;
-  width: 100%; /* Добавлено для полной ширины */
+  width: 100%;
 }
 .page-title {
   color: white;
@@ -78,7 +78,15 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   gap: 10px;
+}
+
+.tc-root {
+  all: unset;
+}
+
+.tc-root * {
+  all: unset;
 }
 </style>

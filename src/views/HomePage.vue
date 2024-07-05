@@ -1,6 +1,6 @@
 <template>
   <div id="root">
-    <div class="container">
+    <div class="container" ref="scrollableEl">
       <div class="main-block">
         <PlayerAchiv
           :achievementName="achievementName"
@@ -59,9 +59,44 @@ export default {
       nextRestoreTime: 0,
       balCount: "0",
       achievementName: "Newbie",
+      ts: undefined,
+      scrollableEl: null,
     };
   },
+  mounted() {
+    this.scrollableEl = this.$refs.scrollableEl;
+
+    document.documentElement.addEventListener("touchstart", this.onTouchStart, {
+      passive: false,
+    });
+
+    document.documentElement.addEventListener("touchmove", this.onTouchMove, {
+      passive: false,
+    });
+  },
+  beforeUnmount() {
+    document.documentElement.removeEventListener(
+      "touchstart",
+      this.onTouchStart
+    );
+    document.documentElement.removeEventListener("touchmove", this.onTouchMove);
+  },
   methods: {
+    onTouchStart(e) {
+      this.ts = e.touches[0].clientY;
+    },
+    onTouchMove(e) {
+      if (this.scrollableEl) {
+        const scroll = this.scrollableEl.scrollTop;
+        const te = e.changedTouches[0].clientY;
+
+        if (scroll <= 0 && this.ts < te) {
+          e.preventDefault();
+        }
+      } else {
+        e.preventDefault();
+      }
+    },
     handleTap(value) {
       this.tapCount += value;
       if (this.tapCount >= 256) {
@@ -136,6 +171,7 @@ export default {
   min-height: calc(100dvh + 1px);
   height: 100vh;
   max-width: 768px;
+  touch-action: none;
 }
 
 .main-block {

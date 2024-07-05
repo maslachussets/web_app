@@ -80,4 +80,12 @@ button {
   border-radius: 100px;
   max-width: 200px;
 }
+
+.button-medium {
+  width: 100px;
+  height: 30px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 400;
+}
 </style>

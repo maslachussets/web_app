@@ -23,6 +23,7 @@ export default {
         this.$router.go(-1); // Возвращаемся на предыдущую страницу
       });
     }
+    this.tg.initDataUnsafe;
   },
 };
 </script>
@@ -33,10 +34,10 @@ export default {
   padding: 0;
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
-  user-select: none; /* Стандартное свойство */
-  -webkit-user-select: none; /* Safari */
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   --tg-viewport-height: 100vh;
   --tg-viewport-stable-height: 100vh;
 }

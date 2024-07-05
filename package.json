@@ -9,6 +9,10 @@
     "deploy": "vue-cli-service build && gh-pages -d dist"
   },
   "dependencies": {
+    "@tma.js/sdk": "^2.6.1",
+    "@tonconnect/sdk": "^3.0.3",
+    "@tonconnect/ui": "^2.0.5",
+    "axios": "^1.7.2",
     "core-js": "^3.8.3",
     "mitt": "^3.0.1",
     "vue": "^3.2.13",

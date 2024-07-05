@@ -99,6 +99,7 @@ export default {
   font-weight: 400;
   word-break: break-all;
   padding: 10px;
+  user-select: all;
 }
 .notification {
   position: fixed;

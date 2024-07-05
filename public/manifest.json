@@ -1,0 +1,8 @@
+{
+  "manifest_version": "1",
+  "id": "GLYPH_app",
+  "name": "GLYPH_app",
+  "description": "Description of your app",
+  "url": "http://192.168.31.20:8080",
+  "icon": "http://192.168.31.20:8080/assets/Gcoinlogo.svg"
+}

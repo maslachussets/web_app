@@ -1,6 +1,9 @@
 <template>
   <div class="test-item">
-    <div class="item-pic"><img src="../assets/Plus.svg" /></div>
+    <div class="item-pic">
+      <img class="NFT" src="../assets/debugNFT.svg" />
+      <!-- <img src="../assets/Plus.svg" /> -->
+    </div>
     <div class="item-name">Empty</div>
   </div>
 </template>
@@ -26,11 +29,28 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+}
+
+.NFT {
+  width: 110px;
+  height: auto;
 }
 
 .item-name {
   font-size: 12px;
   font-weight: 400;
   color: #2e2e2e;
+}
+
+@media (max-width: 390px) {
+  .item-pic {
+    width: 30vw;
+    height: 30vw;
+  }
+  .NFT {
+    width: 30vw;
+    height: 30vw;
+  }
 }
 </style>
