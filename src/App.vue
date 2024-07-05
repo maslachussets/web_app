@@ -71,5 +71,6 @@ body {
   color: white;
   padding: 20px;
   background-color: rgba(255, 255, 255, 0.1);
+  user-select: auto;
 }
 </style>
