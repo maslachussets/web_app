@@ -45,10 +45,10 @@ export default {
   padding: 0;
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
-  user-select: none;
+  /* user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
-  -ms-user-select: none;
+  -ms-user-select: none; */
   --tg-viewport-height: 100vh;
   --tg-viewport-stable-height: 100vh;
 }
@@ -71,6 +71,5 @@ body {
   color: white;
   padding: 20px;
   background-color: rgba(255, 255, 255, 0.1);
-  user-select: auto;
 }
 </style>
