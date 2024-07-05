@@ -33,7 +33,7 @@ export default {
       });
 
       // Сохранение данных в переменную initData
-      this.initData = this.tg.initDataUnsafe || {};
+      this.initData = this.tg.initData || {};
     }
   },
 };
