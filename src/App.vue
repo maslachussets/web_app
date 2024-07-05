@@ -2,6 +2,10 @@
   <div id="app">
     <router-view></router-view>
     <TapConfig />
+    <div id="debug">
+      <h3>Init Data:</h3>
+      <pre>{{ initData }}</pre>
+    </div>
   </div>
 </template>
 
@@ -13,6 +17,11 @@ export default {
   components: {
     TapConfig,
   },
+  data() {
+    return {
+      initData: null,
+    };
+  },
   mounted() {
     if (window.Telegram && window.Telegram.WebApp) {
       this.tg = window.Telegram.WebApp;
@@ -22,8 +31,10 @@ export default {
       this.tg.BackButton.onClick(() => {
         this.$router.go(-1); // Возвращаемся на предыдущую страницу
       });
+
+      // Сохранение данных в переменную initData
+      this.initData = this.tg.initDataUnsafe || {};
     }
-    this.tg.initDataUnsafe;
   },
 };
 </script>
@@ -54,5 +65,11 @@ body {
   flex-direction: column;
   min-height: 100vh;
   width: 100%;
+}
+
+#debug {
+  color: white;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 </style>

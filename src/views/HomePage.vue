@@ -171,7 +171,7 @@ export default {
   min-height: calc(100dvh + 1px);
   height: 100vh;
   max-width: 768px;
-  touch-action: none;
+  touch-action: none; /* Убирает прокруты на айфоне, если будет хуево отображаться, то удалить */
 }
 
 .main-block {
