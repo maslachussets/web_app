@@ -2,10 +2,10 @@
   <div id="app">
     <router-view></router-view>
     <TapConfig />
-    <div id="debug">
+    <!-- <div id="debug">
       <h3>Init Data:</h3>
       <pre>{{ initData }}</pre>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -45,10 +45,10 @@ export default {
   padding: 0;
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
-  /* user-select: none;
+  user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
-  -ms-user-select: none; */
+  -ms-user-select: none;
   --tg-viewport-height: 100vh;
   --tg-viewport-stable-height: 100vh;
 }
